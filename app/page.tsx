@@ -1,25 +1,14 @@
 import SectionHeading from "@/components/SectionHeading";
-// 店舗カードコンポーネントのインポート
 import ShopCard from "@/components/ShopCard"
-// モックデータのインポート
-// import { MOCK_SHOPS } from "@/data/MockData";
 import { getShops } from "@/lib/services/shops";
-// 使えません
-// import { useEffect } from "react";
 import { auth } from '@/lib/firebase/client'
 
-// このコンポーネントは非同期通信を行う
 export default async function Home() {
   console.log("projectId:", auth.app.options.projectId)
 
-  // shops にモックデータを代入
-  // const shops = MOCK_SHOPS;
-  // API 経由なので非同期通信じゃないとデータを取得できない
+
   const shops = await getShops()
-  // ServerComponent では使えません
-  // useEffect(() => {
-  //   console.log(shops);
-  // }, [shops]);
+
 
   return (
     <div>
